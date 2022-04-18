@@ -10,7 +10,7 @@ function buildImportName (name: string) {
 
 function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
   console.info('Building pages components auto-imports')
-  function getComponentsDirs (dirName) {
+  function getComponentsDirs (dirName: string) {
     const dirs = readdirSync(dirName, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
     dirs.forEach((dir) => {
       const dirPath = pathJoin(dirName, dir.name)
@@ -20,12 +20,12 @@ function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
       getComponentsDirs((dirPath))
     })
   }
-  getComponentsDirs(pathJoin(__dirname, '../', 'pages'))
+  getComponentsDirs(pathJoin(process.cwd(), 'pages'))
 }
 
 function buildScriptsAutoImports (imports: Import[]) {
   console.info('Building pages scripts auto-imports')
-  function getScriptsPaths (dirName) {
+  function getScriptsPaths (dirName: string) {
     const dirs = readdirSync(dirName, { withFileTypes: true })
     dirs.forEach((dirent) => {
       const dirPath = pathJoin(dirName, dirent.name)
@@ -41,7 +41,7 @@ function buildScriptsAutoImports (imports: Import[]) {
       }
     })
   }
-  getScriptsPaths(pathJoin(__dirname, '../', 'pages'))
+  getScriptsPaths(pathJoin(process.cwd(), 'pages'))
 }
 
 export {
