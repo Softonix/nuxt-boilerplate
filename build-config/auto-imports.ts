@@ -4,6 +4,8 @@ import { ComponentsDir } from '@nuxt/schema'
 import { Import } from 'unimport'
 import { pascalCase } from 'change-case'
 
+const rootDir = process.cwd()
+
 function buildImportName (name: string) {
   return `use${pascalCase(name.split('.').slice(0, -1).join('.'))}`
 }
@@ -20,7 +22,7 @@ function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
       getComponentsDirs((dirPath))
     })
   }
-  getComponentsDirs(pathJoin(process.cwd(), 'pages'))
+  getComponentsDirs(pathJoin(rootDir, 'pages'))
 }
 
 function buildScriptsAutoImports (imports: Import[]) {
@@ -41,7 +43,7 @@ function buildScriptsAutoImports (imports: Import[]) {
       }
     })
   }
-  getScriptsPaths(pathJoin(process.cwd(), 'pages'))
+  getScriptsPaths(pathJoin(rootDir, 'pages'))
 }
 
 export {
