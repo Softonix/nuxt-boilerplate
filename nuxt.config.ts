@@ -1,4 +1,4 @@
-import { defineNuxtConfig } from 'nuxt3'
+import { defineNuxtConfig } from 'nuxt'
 import { buildRouter } from './build-config/router/router-builder'
 import { buildComponentsAutoImports, buildScriptsAutoImports } from './build-config/auto-imports'
 import { buildElementComponents } from './build-config/element-plus-components'
