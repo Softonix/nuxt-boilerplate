@@ -14,7 +14,7 @@ interface IRouteMeta {
 }
 
 declare module '@nuxt/schema' {
-  interface PublicRuntimeConfig {
+  interface RuntimeConfig {
     // env
   }
 }
