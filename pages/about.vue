@@ -4,7 +4,7 @@
       <p :class="labelClass" class="text-primary">{{ pageLabel }}</p>
       <p class="ml-5">some custom text from about page</p>
     </template>
-    <AboutComponent/>
+    <AboutComponent />
 
     <div>
       <span>{{ aboutVar }}</span>
