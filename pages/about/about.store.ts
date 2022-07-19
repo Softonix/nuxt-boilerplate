@@ -1,5 +1,5 @@
 export default function () {
-  const aboutVar = useState('about', () => 'about var')
+  const aboutVar = useState('clientCart', () => 'about var')
 
   function changeAboutVar (str: string) {
     aboutVar.value = str

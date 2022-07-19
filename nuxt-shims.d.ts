@@ -10,6 +10,7 @@ interface IGlobalProperties {
 interface IRouteMeta {
   requireAuth?: boolean
   pageLabel?: string
+  navOrder?: number
 }
 
 declare module '@nuxt/schema' {

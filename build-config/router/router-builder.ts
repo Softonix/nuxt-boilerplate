@@ -9,7 +9,7 @@ const routeNames = {}
 function parseRoutes (routes: NuxtPage[]) {
   for (let i = routes.length - 1; i >= 0; i--) {
     const route = routes[i]
-    if (['/components/', '.ts'].some(ext => route.file.includes(ext))) {
+    if (['/_components/', '.ts'].some(ext => route.file.includes(ext))) {
       routes.splice(i, 1)
     } else {
       routeNames[camelCase(route.name)] = route.name
