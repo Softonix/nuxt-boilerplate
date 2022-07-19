@@ -4,6 +4,5 @@ export const routeNames = {
   index: 'index',
   contacts: 'contacts',
   about: 'about',
-  aboutSoftonix: 'about-softonix',
-  aboutMe: 'about-me'
+  aboutSoftonix: 'about-softonix'
 }

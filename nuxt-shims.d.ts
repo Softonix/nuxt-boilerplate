@@ -34,5 +34,7 @@ declare module 'vue-router' {
 declare module 'nuxt/dist/pages/runtime/composables' {
   interface PageMeta extends IRouteMeta {}
 }
+
+declare module 'element-plus/dist/index.full.min'
 // It is always important to ensure you import/export something when augmenting a type
 export {}

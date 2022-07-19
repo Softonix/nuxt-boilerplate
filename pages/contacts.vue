@@ -1,10 +1,20 @@
 <template>
-  <div>contacts</div>
+<div>
+  <Test ref="testRef" />
+
+  <el-button @click="testRef?.testFn">
+    call ref funtion
+  </el-button>
+</div>
 </template>
 
 <script lang="ts" setup>
+import { Test } from '#components'
+
 definePageMeta({
   pageLabel: 'Contacts',
   navOrder: 3
 })
+
+const testRef = ref<InstanceType<typeof Test>>()
 </script>
