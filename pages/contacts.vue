@@ -1,11 +1,11 @@
 <template>
-<div>
-  <Test ref="testRef" />
+  <div>
+    <Test ref="testRef" />
 
-  <el-button @click="testRef?.testFn">
-    call ref funtion
-  </el-button>
-</div>
+    <el-button @click="testRef?.testFn">
+      call ref funtion
+    </el-button>
+  </div>
 </template>
 
 <script lang="ts" setup>
