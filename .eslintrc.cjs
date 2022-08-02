@@ -10,8 +10,6 @@ module.exports = {
     '@vue/eslint-config-typescript/recommended'
   ],
 
-  ignorePatterns: ['*.d.ts'],
-
   parserOptions: {
     parser: '@typescript-eslint/parser'
   },
@@ -38,6 +36,7 @@ module.exports = {
       default: 'shorthand',
       named: 'shorthand'
     }],
+    'vue/valid-attribute-name': 'off',
     'vue/component-name-in-template-casing': ['error', 'PascalCase'],
     'vue/script-setup-uses-vars': 'error',
     'vue/attribute-hyphenation': 'off',
@@ -50,6 +49,25 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    indent: 'off',
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/type-annotation-spacing': ['error', {
+      before: false,
+      after: true
+    }],
+
+    '@typescript-eslint/member-delimiter-style': ['error',
+      {
+        multiline: {
+          delimiter: 'none',
+          requireLast: false
+        },
+        singleline: {
+          delimiter: 'semi',
+          requireLast: false
+        }
+      }
+    ],
     '@typescript-eslint/naming-convention': [
       'error',
       {
