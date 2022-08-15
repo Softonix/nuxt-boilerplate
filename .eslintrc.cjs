@@ -50,10 +50,11 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     indent: 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': ['error', 2, { VariableDeclarator: 4 }],
     '@typescript-eslint/type-annotation-spacing': ['error', {
       before: false,
-      after: true
+      after: true,
+      overrides: { arrow: { before: true, after: true } }
     }],
 
     '@typescript-eslint/member-delimiter-style': ['error',

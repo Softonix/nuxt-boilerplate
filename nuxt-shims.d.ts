@@ -1,5 +1,8 @@
+/* eslint-disable @typescript-eslint/no-empty-interface */
+/* eslint-disable @typescript-eslint/naming-convention */
+
 import { EComponentSize, EComponentType } from '~/types'
-import {routeNames} from "~/build-config/router/route-names";
+import { routeNames } from '~/build-config/router/route-names'
 
 interface IGlobalProperties {
   $componentType: typeof EComponentType
@@ -35,6 +38,6 @@ declare module 'nuxt/dist/pages/runtime/composables' {
   interface PageMeta extends IRouteMeta {}
 }
 
-declare module 'element-plus/dist/index.full.min'
+declare module 'element-plus/dist/index.full.min.mjs'
 // It is always important to ensure you import/export something when augmenting a type
 export {}
