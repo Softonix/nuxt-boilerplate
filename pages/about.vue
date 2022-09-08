@@ -1,14 +1,15 @@
 <template>
-  <NuxtLayout name="default">
-    <template #header="{ pageLabel, labelClass }">
-      <p :class="labelClass" class="text-primary">{{ pageLabel }}</p>
-      <p class="ml-5">some custom text from about page</p>
-    </template>
+  <div>
     <AboutComponent />
 
     <div>
       <span>{{ aboutVar }}</span>
-      <ElButton :type="$componentType.PRIMARY" @click="changeAboutVar('changed var')">Change about var</ElButton>
+      <el-button
+        :type="$componentType.PRIMARY"
+        @click="changeAboutVar('changed var')"
+      >
+        Change about var
+      </el-button>
     </div>
 
     <div class="space-x-5">
@@ -24,14 +25,13 @@
     </div>
 
     <NuxtPage />
-  </NuxtLayout>
+  </div>
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
   pageLabel: 'About',
-  navOrder: 2,
-  layout: false
+  navOrder: 2
 })
 
 const route = useRoute()
