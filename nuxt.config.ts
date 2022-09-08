@@ -30,7 +30,7 @@ export default defineNuxtConfig({
   },
   hooks: {
     'components:dirs': buildComponentsAutoImports,
-    'autoImports:extend': buildScriptsAutoImports,
+    'imports:extend': buildScriptsAutoImports,
     'pages:extend': buildRouter
   }
 })
