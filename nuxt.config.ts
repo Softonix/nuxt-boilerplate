@@ -1,7 +1,10 @@
 import { defineNuxtConfig } from 'nuxt'
 import { buildRouter } from './build-config/router/router-builder'
 import { buildComponentsAutoImports, buildScriptsAutoImports } from './build-config/auto-imports'
-import { buildElementComponents } from './build-config/element-plus-components'
+import Components from 'unplugin-vue-components/vite'
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+
+const lifecycle = process.env.npm_lifecycle_event
 
 export default defineNuxtConfig({
   css: [
@@ -16,8 +19,16 @@ export default defineNuxtConfig({
     '@vueuse/nuxt'
   ],
 
+  vite: {
+    plugins: [
+      Components({
+        dts: lifecycle === 'dev' && './dts/components.d.ts',
+        dirs: [],
+        resolvers: [ElementPlusResolver({ importStyle: false })]
+      })
+    ]
+  },
   hooks: {
-    'components:extend': buildElementComponents,
     'components:dirs': buildComponentsAutoImports,
     'autoImports:extend': buildScriptsAutoImports,
     'pages:extend': buildRouter
