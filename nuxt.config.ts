@@ -13,10 +13,7 @@ export default defineNuxtConfig({
   ],
 
   modules: [
-    '@nuxtjs/tailwindcss'
-  ],
-
-  buildModules: [
+    '@nuxtjs/tailwindcss',
     '@vueuse/nuxt'
   ],
 
