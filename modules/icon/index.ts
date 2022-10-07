@@ -1,4 +1,4 @@
-import { buildIconsNames } from './runtime/icons-builder'
+import { buildIcons } from './runtime/icons-builder'
 import {
   defineNuxtModule,
   createResolver,
@@ -8,7 +8,7 @@ import {
 
 export default defineNuxtModule<{ iconsDir?: string }>({
   setup ({ iconsDir }, { options: { rootDir } }) {
-    buildIconsNames(rootDir, iconsDir)
+    buildIcons(rootDir, iconsDir)
 
     const { resolve } = createResolver(import.meta.url)
 

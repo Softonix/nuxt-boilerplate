@@ -3,7 +3,7 @@ import { join as pathJoin } from 'path'
 import { inspect as utilInspect } from 'util'
 import { camelCase } from 'change-case'
 
-export function buildIconsNames (rootDir: string, dir = 'assets/icons') {
+export function buildIcons (rootDir: string, dir = 'assets/icons') {
   const iconsDir = pathJoin(rootDir, dir)
   const icons = readdirSync(iconsDir)
     .reduce((acc, cur) => {
