@@ -1,4 +1,4 @@
-import { buildIconsNames } from './runtime/build-icon-names'
+import { buildIconsNames } from './runtime/icons-builder'
 import {
   defineNuxtModule,
   createResolver,
@@ -12,7 +12,7 @@ export default defineNuxtModule<{ iconsDir?: string }>({
 
     const { resolve } = createResolver(import.meta.url)
 
-    addPlugin(resolve('./runtime/icon-names.plugin'))
+    addPlugin(resolve('./runtime/icons.plugin'))
     addComponent({ name: 'Icon', filePath: resolve('./runtime/Icon.vue') })
   }
 })
