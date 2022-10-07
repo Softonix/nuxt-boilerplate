@@ -2,6 +2,8 @@
   <div>
     <AboutComponent />
 
+    <Icon :name="$icons.eyeTest" />
+
     <div>
       <span>{{ aboutVar }}</span>
       <el-button

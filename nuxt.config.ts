@@ -1,9 +1,7 @@
-import { defineNuxtConfig } from 'nuxt'
+import svgLoader from 'vite-svg-loader'
+
 import Components from 'unplugin-vue-components/vite'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-
-import { buildRouter } from './build-config/router/router-builder'
-import { buildComponentsAutoImports, buildScriptsAutoImports } from './build-config/auto-imports'
 
 const lifecycle = process.env.npm_lifecycle_event
 
@@ -13,8 +11,11 @@ export default defineNuxtConfig({
   ],
 
   modules: [
-    '@nuxtjs/tailwindcss',
-    '@vueuse/nuxt'
+    ['@nuxtjs/tailwindcss', { viewer: false }],
+    '@vueuse/nuxt',
+    './modules/icon',
+    './modules/router',
+    './modules/imports'
   ],
 
   vite: {
@@ -23,13 +24,8 @@ export default defineNuxtConfig({
         dts: lifecycle === 'dev' && './dts/components.d.ts',
         dirs: [],
         resolvers: [ElementPlusResolver({ importStyle: false })]
-      })
+      }),
+      svgLoader()
     ]
-  },
-
-  hooks: {
-    'components:dirs': buildComponentsAutoImports,
-    'imports:extend': buildScriptsAutoImports,
-    'pages:extend': buildRouter
   }
 })
