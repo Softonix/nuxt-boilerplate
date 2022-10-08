@@ -4,7 +4,7 @@
 <script lang="ts" setup>
 
 const props = defineProps<{
-  name?: string
+  name: string
 }>()
 
 const { $iconsPath } = useNuxtApp()

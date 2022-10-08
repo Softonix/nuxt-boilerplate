@@ -2,7 +2,7 @@
   <div>
     <AboutComponent />
 
-    <Icon :name="$icons.eyeTest" />
+    <Icon :name="$icons.eyeTest" class="text-primary hover:text-black cursor-pointer" />
 
     <div>
       <span>{{ aboutVar }}</span>
