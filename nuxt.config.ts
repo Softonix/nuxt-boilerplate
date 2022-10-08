@@ -15,6 +15,7 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     './modules/icon',
     './modules/router',
+    './modules/portal',
     './modules/imports'
   ],
 
