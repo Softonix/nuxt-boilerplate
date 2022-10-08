@@ -56,7 +56,7 @@ function buildScriptsAutoImports (imports: Import[]) {
     }
   }
   getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'pages')))
-  getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'composables')))
+  getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'store')))
 }
 
 export {
