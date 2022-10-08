@@ -3,6 +3,6 @@
 export default defineNuxtPlugin(() => ({
   provide: {
     iconsPath: '/Users/ramel9/work/softonix/nuxt-boilerplate/assets/icons',
-    icons: { eyeTest: 'eye-test', knife: 'knife' }
+    icons: { eyeTest: 'eye-test' }
   }
 }))
