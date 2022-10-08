@@ -17,14 +17,18 @@ function replaceBackSlash (string: string) {
 function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
   console.info('Building pages components auto-imports')
   function getComponentsDirs (dirName: string) {
-    const dirs = readdirSync(dirName, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
-    dirs.forEach((dir) => {
-      const dirPath = replaceBackSlash(pathJoin(dirName, dir.name))
-      if (dirPath.includes('_components')) {
-        nuxtDirs.push(dirPath)
-      }
-      getComponentsDirs((dirPath))
-    })
+    try {
+      const dirs = readdirSync(dirName, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
+      dirs.forEach((dir) => {
+        const dirPath = replaceBackSlash(pathJoin(dirName, dir.name))
+        if (dirPath.includes('_components')) {
+          nuxtDirs.push(dirPath)
+        }
+        getComponentsDirs((dirPath))
+      })
+    } catch {
+      console.warn(`No such file or directory, ${dirName}`)
+    }
   }
   getComponentsDirs(replaceBackSlash(pathJoin(rootDir, 'pages')))
 }
@@ -32,20 +36,24 @@ function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
 function buildScriptsAutoImports (imports: Import[]) {
   console.info('Building pages scripts auto-imports')
   function getScriptsPaths (dirName: string) {
-    const dirs = readdirSync(dirName, { withFileTypes: true })
-    dirs.forEach((dirent) => {
-      const dirPath = replaceBackSlash(pathJoin(dirName, dirent.name))
-      if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext))) {
-        imports.push({
-          name: 'default',
-          as: buildImportName(dirent.name),
-          from: dirPath
-        })
-      }
-      if (dirent.isDirectory()) {
-        getScriptsPaths((dirPath))
-      }
-    })
+    try {
+      const dirs = readdirSync(dirName, { withFileTypes: true })
+      dirs.forEach((dirent) => {
+        const dirPath = replaceBackSlash(pathJoin(dirName, dirent.name))
+        if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext))) {
+          imports.push({
+            name: 'default',
+            as: buildImportName(dirent.name),
+            from: dirPath
+          })
+        }
+        if (dirent.isDirectory()) {
+          getScriptsPaths((dirPath))
+        }
+      })
+    } catch {
+      console.warn(`No such file or directory, ${dirName}`)
+    }
   }
   getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'pages')))
   getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'composables')))

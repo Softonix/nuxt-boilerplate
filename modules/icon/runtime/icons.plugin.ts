@@ -2,7 +2,7 @@
 // DON'T CHANGE IT IN ORDER TO MAKE IT PROPERLY WORK!
 export default defineNuxtPlugin(() => ({
   provide: {
-    iconsDir: '/Users/ramel9/work/softonix/nuxt-boilerplate/assets/icons',
+    iconsPath: '/Users/ramel9/work/softonix/nuxt-boilerplate/assets/icons',
     icons: { eyeTest: 'eye-test' }
   }
 }))
