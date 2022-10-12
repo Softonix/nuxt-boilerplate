@@ -3,8 +3,8 @@ import { join as pathJoin } from 'path'
 import { inspect as utilInspect } from 'util'
 import { camelCase } from 'change-case'
 
-export function buildIcons (rootDir: string, dir = 'assets/icons') {
-  const iconsPath = pathJoin(rootDir, dir)
+export function buildIcons (rootDir: string) {
+  const iconsPath = pathJoin(rootDir, 'assets/icons')
   try {
     const icons = readdirSync(iconsPath)
       .reduce((acc, cur) => {
@@ -19,7 +19,6 @@ export function buildIcons (rootDir: string, dir = 'assets/icons') {
         .concat('// DON\'T CHANGE IT IN ORDER TO MAKE IT PROPERLY WORK!\n')
         .concat(`export default defineNuxtPlugin(() => (${utilInspect({
           provide: {
-            iconsPath,
             icons
           }
         })}))`)

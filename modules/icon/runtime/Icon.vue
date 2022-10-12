@@ -7,7 +7,5 @@ const props = defineProps<{
   name: string
 }>()
 
-const { $iconsPath } = useNuxtApp()
-
-const icon = defineAsyncComponent(() => import(/* @vite-ignore */ `${$iconsPath}/${props.name}.svg?component`))
+const icon = defineAsyncComponent(() => import(`../../../assets/icons/${props.name}.svg?component`))
 </script>

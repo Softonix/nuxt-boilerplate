@@ -6,9 +6,9 @@ import {
   addPlugin
 } from '@nuxt/kit'
 
-export default defineNuxtModule<{ iconsDir?: string }>({
-  setup ({ iconsDir }, { options: { rootDir } }) {
-    buildIcons(rootDir, iconsDir)
+export default defineNuxtModule({
+  setup (_, { options: { rootDir } }) {
+    buildIcons(rootDir)
 
     const { resolve } = createResolver(import.meta.url)
 

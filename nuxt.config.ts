@@ -13,10 +13,10 @@ export default defineNuxtConfig({
   modules: [
     ['@nuxtjs/tailwindcss', { viewer: false }],
     '@vueuse/nuxt',
-    './modules/icon',
     './modules/router',
-    './modules/portal',
-    './modules/imports'
+    './modules/imports',
+    './modules/icon',
+    './modules/portal'
   ],
 
   vite: {
