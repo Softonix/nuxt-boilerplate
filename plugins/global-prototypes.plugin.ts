@@ -1,4 +1,3 @@
-import { defineNuxtPlugin } from '#app'
 import { EComponentSize, EComponentType } from '~/types'
 
 export default defineNuxtPlugin(() => {
