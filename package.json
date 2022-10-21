@@ -7,7 +7,7 @@
     "lint": "eslint --ext .ts,.js,.vue ."
   },
   "devDependencies": {
-    "@nuxtjs/tailwindcss": "^5.0.2",
+    "@nuxtjs/tailwindcss": "^6.0.1",
     "@rushstack/eslint-patch": "^1.1.0",
     "@types/node": "^16.11.43",
     "@vue/eslint-config-typescript": "^11.0.0",
