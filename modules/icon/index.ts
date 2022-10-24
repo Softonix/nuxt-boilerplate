@@ -1,9 +1,11 @@
+import svgLoader from 'vite-svg-loader'
 import { buildIcons } from './runtime/icons-builder'
 import {
   defineNuxtModule,
   createResolver,
   addComponent,
-  addPlugin
+  addPlugin,
+  addVitePlugin
 } from '@nuxt/kit'
 
 export default defineNuxtModule({
@@ -14,5 +16,6 @@ export default defineNuxtModule({
 
     addPlugin(resolve('./runtime/icons.plugin'))
     addComponent({ name: 'Icon', filePath: resolve('./runtime/Icon.vue') })
+    addVitePlugin(svgLoader())
   }
 })
