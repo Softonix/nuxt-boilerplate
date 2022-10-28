@@ -1,4 +1,4 @@
-import { join as pathJoin } from 'path'
+import { join as pathJoin } from 'pathe'
 import { readdirSync } from 'fs'
 import { ComponentsDir } from '@nuxt/schema'
 import { Import } from 'unimport'
@@ -10,17 +10,13 @@ function buildImportName (name: string) {
   return `use${pascalCase(name.split('.').slice(0, -1).join('.'))}`
 }
 
-function replaceBackSlash (string: string) {
-  return string.replace(/\\/g, '/')
-}
-
 function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
   console.info('Building pages components auto-imports')
   function getComponentsDirs (dirName: string) {
     try {
       const dirs = readdirSync(dirName, { withFileTypes: true }).filter(dirent => dirent.isDirectory())
       dirs.forEach((dir) => {
-        const dirPath = replaceBackSlash(pathJoin(dirName, dir.name))
+        const dirPath = pathJoin(dirName, dir.name)
         if (dirPath.includes('_components')) {
           nuxtDirs.push(dirPath)
         }
@@ -30,7 +26,7 @@ function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
       console.warn(`No such file or directory, ${dirName}`)
     }
   }
-  getComponentsDirs(replaceBackSlash(pathJoin(rootDir, 'pages')))
+  getComponentsDirs(pathJoin(rootDir, 'pages'))
 }
 
 function buildScriptsAutoImports (imports: Import[]) {
@@ -39,7 +35,7 @@ function buildScriptsAutoImports (imports: Import[]) {
     try {
       const dirs = readdirSync(dirName, { withFileTypes: true })
       dirs.forEach((dirent) => {
-        const dirPath = replaceBackSlash(pathJoin(dirName, dirent.name))
+        const dirPath = pathJoin(dirName, dirent.name)
         if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext))) {
           imports.push({
             name: 'default',
@@ -55,9 +51,9 @@ function buildScriptsAutoImports (imports: Import[]) {
       console.warn(`No such file or directory, ${dirName}`)
     }
   }
-  getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'pages')))
-  getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'composables')))
-  getScriptsPaths(replaceBackSlash(pathJoin(rootDir, 'store')))
+  getScriptsPaths(pathJoin(rootDir, 'pages'))
+  getScriptsPaths(pathJoin(rootDir, 'composables'))
+  getScriptsPaths(pathJoin(rootDir, 'store'))
 }
 
 export {
