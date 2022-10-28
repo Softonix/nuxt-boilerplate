@@ -14,7 +14,7 @@
           ]"
           active-class="bg-gray-100 text-gray-900"
         >
-          {{ item.meta.pageLabel }}
+          {{ item.meta?.pageLabel }}
         </NuxtLink>
       </div>
     </div>
@@ -25,7 +25,7 @@
         <Compute
           #default="{ labelClass, pageLabel }"
           :labelClass="'font-bold text-lg'"
-          :pageLabel="$route.meta.pageLabel"
+          :pageLabel="$route.meta?.pageLabel"
         >
           <slot name="header" :labelClass="labelClass" :pageLabel="pageLabel">
             <p :class="labelClass">{{ pageLabel }}</p>

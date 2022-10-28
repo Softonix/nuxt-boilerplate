@@ -23,7 +23,7 @@
         class="hover:text-primary hover:underline"
         :to="{ name: item.name }"
       >
-        {{ item.meta.pageLabel }}
+        {{ item.meta?.pageLabel }}
       </NuxtLink>
     </div>
 

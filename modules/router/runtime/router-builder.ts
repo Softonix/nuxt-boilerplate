@@ -1,5 +1,5 @@
 import { writeFileSync } from 'fs'
-import { join as pathJoin } from 'path'
+import { join as pathJoin } from 'pathe'
 import { inspect as utilInspect } from 'util'
 import { NuxtPage } from '@nuxt/schema'
 import { camelCase } from 'change-case'
