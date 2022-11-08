@@ -5,4 +5,21 @@ export default defineNuxtPlugin(({ vueApp }) => {
     prefix: 100,
     current: 0
   })
+
+  return {
+    provide: {
+      $elComponentSize: {
+        small: 'small',
+        default: 'default',
+        large: 'large'
+      },
+      $elComponentType: {
+        primary: 'primary',
+        success: 'success',
+        warning: 'warning',
+        danger: 'danger',
+        info: 'info'
+      }
+    }
+  }
 })
