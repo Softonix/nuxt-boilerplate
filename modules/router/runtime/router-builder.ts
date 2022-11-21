@@ -4,7 +4,7 @@ import { inspect as utilInspect } from 'util'
 import { NuxtPage } from '@nuxt/schema'
 import { camelCase } from 'change-case'
 
-const routeNames = {}
+const routeNames: Record<string, string> = {}
 // Parses pages folder and recursively ignores all files placed in /components dirs.
 function parseRoutes (routes: NuxtPage[]) {
   for (let i = routes.length - 1; i >= 0; i--) {
@@ -12,10 +12,10 @@ function parseRoutes (routes: NuxtPage[]) {
     if (['/_components/', '.ts'].some(ext => route.file.includes(ext))) {
       routes.splice(i, 1)
     } else {
-      routeNames[camelCase(route.name)] = route.name
+      routeNames[camelCase(route.name as string)] = route.name as string
     }
 
-    parseRoutes(route.children)
+    parseRoutes(route.children || [])
   }
 }
 
