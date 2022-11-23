@@ -23,6 +23,8 @@ declare module '@vue/runtime-core' {
     ElSelectV2: typeof import('element-plus/es')['ElSelectV2']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTimePicker: typeof import('element-plus/es')['ElTimePicker']
+    IconEyeTest: typeof import('~icons/icon/eye-test')['default']
+    IconKnife: typeof import('~icons/icon/knife')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

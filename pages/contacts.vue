@@ -2,7 +2,7 @@
   <div>
     <Test ref="testRef" />
 
-    <Icon :name="$icons.eyeTest" />
+    <IconEyeTest />
 
     <el-button @click="testRef?.testFn">
       call ref funtion
