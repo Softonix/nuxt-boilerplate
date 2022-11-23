@@ -5,8 +5,5 @@
   "importHelpers": true,
   "experimentalDecorators": true,
   "isolatedModules": true,
-  "esModuleInterop": true,
-  "compilerOptions": {
-    "types": ["element-plus/global"]
-  }
+  "esModuleInterop": true
 }
