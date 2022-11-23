@@ -9,8 +9,6 @@ import {
   addVitePlugin
 } from '@nuxt/kit'
 
-const lifecycle = process.env.npm_lifecycle_event
-
 export default defineNuxtModule({
   setup () {
     addVitePlugin([
@@ -22,7 +20,7 @@ export default defineNuxtModule({
       }),
 
       Components({
-        dts: lifecycle === 'dev' && './dts/components.d.ts',
+        dts: './dts/components.d.ts',
         dirs: [],
         resolvers: [
           ElementPlusResolver({ importStyle: false }),
