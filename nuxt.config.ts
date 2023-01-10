@@ -8,7 +8,6 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     './modules/router',
     './modules/imports',
-    './modules/unplugin',
-    './modules/portal'
+    './modules/unplugin'
   ]
 })

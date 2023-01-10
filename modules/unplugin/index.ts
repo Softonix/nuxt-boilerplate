@@ -3,6 +3,7 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
+import { Plugin } from 'vite'
 
 import {
   defineNuxtModule,
@@ -17,7 +18,7 @@ export default defineNuxtModule({
         customCollections: {
           icon: FileSystemIconLoader('./assets/icons')
         }
-      }),
+      }) as Plugin,
 
       Components({
         dts: './dts/components.d.ts',

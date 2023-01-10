@@ -1,4 +1,5 @@
 import { ID_INJECTION_KEY } from 'element-plus'
+import { EElComponentSize, EElComponentType } from '@/types/enums'
 
 export default defineNuxtPlugin(({ vueApp }) => {
   vueApp.provide(ID_INJECTION_KEY, {
@@ -8,18 +9,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
 
   return {
     provide: {
-      $elComponentSize: {
-        small: 'small',
-        default: 'default',
-        large: 'large'
-      },
-      $elComponentType: {
-        primary: 'primary',
-        success: 'success',
-        warning: 'warning',
-        danger: 'danger',
-        info: 'info'
-      }
+      $elComponentSize: EElComponentSize,
+      $elComponentType: EElComponentType
     }
   }
 })

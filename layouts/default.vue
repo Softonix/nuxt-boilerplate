@@ -44,5 +44,5 @@
 <script lang="ts" setup>
 const router = useRouter()
 
-const navigation = router.options.routes.slice().sort((a, b) => a.meta.navOrder - b.meta.navOrder)
+const navigation = router.options.routes.slice().sort((a, b) => (a.meta?.navOrder ?? 0) - (b.meta?.navOrder ?? 0))
 </script>
