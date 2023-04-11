@@ -1,11 +1,6 @@
 {
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
-  "useDefineForClassFields": true,
-  "importHelpers": true,
-  "experimentalDecorators": true,
-  "isolatedModules": true,
-  "esModuleInterop": true,
   "compilerOptions": {
     "types": ["unplugin-icons/types/vue"]
   }

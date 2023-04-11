@@ -9,8 +9,8 @@ export default defineNuxtPlugin(({ vueApp }) => {
 
   return {
     provide: {
-      $elComponentSize: EElComponentSize,
-      $elComponentType: EElComponentType
+      elComponentSize: EElComponentSize,
+      elComponentType: EElComponentType
     }
   }
 })

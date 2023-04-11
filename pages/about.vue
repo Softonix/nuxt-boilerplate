@@ -8,7 +8,7 @@
     <div>
       <span>{{ aboutVar }}</span>
       <el-button
-        :type="$$elComponentType.primary"
+        :type="$elComponentType.primary"
         @click="changeAboutVar('changed var')"
       >
         Change about var

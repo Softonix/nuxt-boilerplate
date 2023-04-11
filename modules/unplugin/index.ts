@@ -21,7 +21,7 @@ export default defineNuxtModule({
       }) as Plugin,
 
       Components({
-        dts: './dts/components.d.ts',
+        dts: '.nuxt/components.d.ts',
         dirs: [],
         resolvers: [
           ElementPlusResolver({ importStyle: false }),

@@ -14,7 +14,7 @@ module.exports = {
     parser: '@typescript-eslint/parser'
   },
 
-  ignorePatterns: ['*.d.ts'],
+  ignorePatterns: ['dts/*.d.ts'],
 
   rules: {
     'max-len': ['error', {
