@@ -1,7 +1,7 @@
 import { join as pathJoin } from 'pathe'
 import { readdirSync } from 'fs'
-import { ComponentsDir } from '@nuxt/schema'
-import { Import } from 'unimport'
+import type { ComponentsDir } from '@nuxt/schema'
+import type { Import } from 'unimport'
 import { pascalCase } from 'change-case'
 
 const rootDir = process.cwd()

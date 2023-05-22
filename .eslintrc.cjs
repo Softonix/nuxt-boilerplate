@@ -3,6 +3,7 @@ require('@rushstack/eslint-patch/modern-module-resolution')
 
 module.exports = {
   root: true,
+
   extends: [
     'plugin:vue/vue3-recommended',
     'eslint:recommended',
@@ -11,6 +12,7 @@ module.exports = {
   ],
 
   parserOptions: {
+    ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser'
   },
 
@@ -54,7 +56,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     indent: 'off',
-    '@typescript-eslint/indent': ['error', 2, { VariableDeclarator: 4 }],
+    '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/type-annotation-spacing': ['error', {
       before: false,
       after: true,
