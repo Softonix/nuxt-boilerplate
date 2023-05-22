@@ -39,7 +39,7 @@ definePageMeta({
 
 const route = useRoute()
 
-const innerNavigation = route.matched[0].children
+const innerNavigation = route.matched[0].children.map(({ name, meta }) => ({ name: name as TRouteNames, meta }))
 
 const { aboutVar, changeAboutVar } = useAboutStore()
 </script>
