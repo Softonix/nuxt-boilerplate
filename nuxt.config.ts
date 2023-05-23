@@ -3,14 +3,6 @@ export default defineNuxtConfig({
     '@/assets/styles/main.scss'
   ],
 
-  typescript: {
-    tsConfig: {
-      compilerOptions: {
-        moduleResolution: 'bundler'
-      }
-    }
-  },
-
   experimental: {
     typedPages: true
   },
