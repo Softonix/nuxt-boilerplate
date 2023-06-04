@@ -2,8 +2,8 @@
   // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "bundler",
+    "moduleResolution": "node",
     "verbatimModuleSyntax": true,
-    "types": ["unplugin-icons/types/vue"]
+    "types": ["unplugin-icons/types/vue", "element-plus/global"]
   }
 }
