@@ -4,6 +4,6 @@
   "compilerOptions": {
     "moduleResolution": "node",
     "verbatimModuleSyntax": true,
-    "types": ["unplugin-icons/types/vue", "element-plus/global"]
+    "types": ["unplugin-icons/types/vue"]
   }
 }
