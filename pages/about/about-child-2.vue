@@ -1,9 +1,9 @@
 <template>
-  <div>Hello Softonix</div>
+  <div>About child 2</div>
 </template>
 
 <script lang="ts" setup>
 definePageMeta({
-  pageLabel: 'Softonix'
+  pageLabel: 'About child 2'
 })
 </script>

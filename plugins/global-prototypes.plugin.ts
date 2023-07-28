@@ -1,7 +1,10 @@
+import { EElComponentSize, EElComponentType } from '@/types/enums'
+
 export default defineNuxtPlugin(() => {
   return {
     provide: {
-      // your variables here
+      elComponentSize: EElComponentSize,
+      elComponentType: EElComponentType
     }
   }
 })

@@ -2,11 +2,13 @@
   <div>
     <AboutComponent />
 
-    <IconEyeTest class="text-primary hover:text-black cursor-pointer" />
-    <IconKnife class="w-7 text-primary hover:text-black cursor-pointer" />
+    <AppIconEyeTest class="text-primary hover:text-black cursor-pointer" />
+    <AppIconKnife class="w-7 text-primary hover:text-black cursor-pointer" />
 
     <div>
-      <span>{{ aboutVar }}</span>
+      <p>{{ $t('general.welcome') }}</p>
+
+      <p>{{ aboutVar }}</p>
       <el-button
         :type="$elComponentType.primary"
         @click="changeAboutVar('changed var')"
@@ -33,13 +35,18 @@
 
 <script lang="ts" setup>
 definePageMeta({
-  pageLabel: 'About',
+  pageLabel: 'navigation.about',
   navOrder: 2
 })
 
 const route = useRoute()
 
-const innerNavigation = route.matched[0].children.map(({ name, meta }) => ({ name: name as TRouteNames, meta }))
+const innerNavigation = computed(() => {
+  return route.matched[0].children.map(({ name, meta }) => ({
+    name: name as TRouteNamedMapKeys,
+    meta
+  }))
+})
 
 const { aboutVar, changeAboutVar } = useAboutStore()
 </script>

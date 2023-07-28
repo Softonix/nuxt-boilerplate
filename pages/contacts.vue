@@ -2,7 +2,7 @@
   <div>
     <Test ref="testRef" />
 
-    <IconEyeTest />
+    <AppIconEyeTest />
 
     <el-button @click="testRef?.testFn">
       call ref funtion
@@ -14,7 +14,7 @@
 import { Test } from '#components'
 
 definePageMeta({
-  pageLabel: 'Contacts',
+  pageLabel: 'navigation.contacts',
   navOrder: 3
 })
 

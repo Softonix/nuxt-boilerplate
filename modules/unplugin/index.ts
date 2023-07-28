@@ -1,7 +1,6 @@
 import Components from 'unplugin-vue-components/vite'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
 import { FileSystemIconLoader } from 'unplugin-icons/loaders'
 import type { Plugin } from 'vite'
 
@@ -24,9 +23,8 @@ export default defineNuxtModule({
         dts: 'dts/components.d.ts',
         dirs: [],
         resolvers: [
-          ElementPlusResolver({ importStyle: false }),
           IconsResolver({
-            prefix: '',
+            prefix: 'app',
             customCollections: ['icon']
           })
         ]
