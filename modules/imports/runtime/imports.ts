@@ -10,7 +10,13 @@ function buildImportName (name: string) {
   return `use${pascalCase(name.split('.').slice(0, -1).join('.'))}`
 }
 
-function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
+function buildComponentsAutoImports (nuxtDirs: ComponentsDir[]) {
+  const componentsFolderIndex = nuxtDirs.findIndex(dir => dir.path.endsWith('components'))
+  nuxtDirs.splice(componentsFolderIndex, 1, {
+    path: nuxtDirs[componentsFolderIndex].path,
+    pathPrefix: false
+  })
+
   console.info('Building pages components auto-imports')
   function getComponentsDirs (dirName: string) {
     try {
@@ -18,7 +24,7 @@ function buildComponentsAutoImports (nuxtDirs: (string | ComponentsDir)[]) {
       dirs.forEach((dir) => {
         const dirPath = pathJoin(dirName, dir.name)
         if (dirPath.includes('_components')) {
-          nuxtDirs.push(dirPath)
+          nuxtDirs.push({ path: dirPath, pathPrefix: false })
         }
         getComponentsDirs((dirPath))
       })
