@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "run-p type-check nuxt build",
+    "build": "type-check & nuxt build",
     "dev": "nuxt dev",
-    "generate": "run-p type-check nuxt generate",
+    "generate": "type-check & nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "type-check": "vue-tsc --noEmit",
