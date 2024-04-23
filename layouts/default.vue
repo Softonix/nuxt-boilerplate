@@ -3,14 +3,14 @@
     <!-- SIDEBAR -->
     <div class="w-[300px] border-r border-gray-300 flex flex-col">
       <!-- LANG SWITCHER -->
-      <div class="h-20 flex items-center justify-center shrink-0 border-b border-gray-300 shadow">
+      <div class="h-20 flex items-center justify-center shrink-0 border-b border-gray-300 shadow px-5">
         <client-only>
           <el-select
             v-model="locale"
             @update:modelValue="navigateTo(switchLocalePath(locale))"
           >
             <el-option
-              v-for="l in (locales as LocaleObject[])"
+              v-for="l in locales"
               :key="l.code"
               :label="l.name"
               :value="l.code"
@@ -39,9 +39,11 @@
       <!-- HEADER -->
       <div class="shrink-0 flex items-center h-20 bg-white shadow border-b border-gray-300 px-5">
         <Compute
-          #default="{ labelClass, pageLabel }"
-          :labelClass="'font-bold text-lg'"
-          :pageLabel="$route.meta?.pageLabel"
+          #default="{ data: {labelClass, pageLabel} }"
+          :data="{
+            labelClass: 'font-bold text-lg',
+            pageLabel: $route.meta?.pageLabel || ''
+          }"
         >
           <slot name="header" :labelClass="labelClass" :pageLabel="pageLabel">
             <p :class="labelClass">{{ $t(pageLabel) }}</p>
@@ -58,8 +60,6 @@
 </template>
 
 <script lang="ts" setup>
-import type { LocaleObject } from 'vue-i18n-routing'
-
 const { locale, locales, t } = useI18n()
 
 const switchLocalePath = useSwitchLocalePath()

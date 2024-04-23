@@ -6,11 +6,13 @@ import { pascalCase } from 'change-case'
 
 const rootDir = process.cwd()
 
-function buildImportName (name: string) {
-  return `use${pascalCase(name.split('.').slice(0, -1).join('.'))}`
+function buildImportName (name: string, omitPrefix?: boolean) {
+  const nameWithoutExt = name.split('.').slice(0, -1).join('.')
+  return omitPrefix ? nameWithoutExt : `use${pascalCase(name.split('.').slice(0, -1).join('.'))}`
 }
 
-function buildComponentsAutoImports (nuxtDirs: ComponentsDir[]) {
+function buildComponentsAutoImports (dirs: (string | ComponentsDir)[]) {
+  const nuxtDirs = dirs as ComponentsDir[]
   const componentsFolderIndex = nuxtDirs.findIndex(dir => dir.path.endsWith('components'))
   nuxtDirs.splice(componentsFolderIndex, 1, {
     path: nuxtDirs[componentsFolderIndex].path,
@@ -42,13 +44,17 @@ function buildScriptsAutoImports (imports: Import[]) {
       const dirs = readdirSync(dirName, { withFileTypes: true })
       dirs.forEach((dirent) => {
         const dirPath = pathJoin(dirName, dirent.name)
-        if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext))) {
+
+        const hasPrefix = ['use', 'get'].some(prefix => dirent.name.includes(prefix))
+
+        if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext)) || hasPrefix) {
           imports.push({
             name: 'default',
-            as: buildImportName(dirent.name),
+            as: buildImportName(dirent.name, hasPrefix),
             from: dirPath
           })
         }
+
         if (dirent.isDirectory()) {
           getScriptsPaths((dirPath))
         }

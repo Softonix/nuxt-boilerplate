@@ -1,9 +1,9 @@
 <template>
-  <slot v-bind="$attrs" />
+  <slot v-bind="$props" />
 </template>
 
-<script lang="ts">
-export default defineComponent({
-  inheritAttrs: false
-})
+<script lang="ts" setup generic="T">
+defineProps<{
+  data: T
+}>()
 </script>

@@ -74,17 +74,17 @@
 
       <el-form-item label="Activity type" prop="type">
         <el-checkbox-group v-model="ruleForm.type">
-          <el-checkbox label="Online activities" name="type" />
-          <el-checkbox label="Promotion activities" name="type" />
-          <el-checkbox label="Offline activities" name="type" />
-          <el-checkbox label="Simple brand exposure" name="type" />
+          <el-checkbox value="Online activities" label="Online activities" name="type" />
+          <el-checkbox value="Promotion activities" label="Promotion activities" name="type" />
+          <el-checkbox value="Offline activities" label="Offline activities" name="type" />
+          <el-checkbox value="Simple brand exposure" label="Simple brand exposure" name="type" />
         </el-checkbox-group>
       </el-form-item>
 
       <el-form-item label="Resources" prop="resource">
         <el-radio-group v-model="ruleForm.resource">
-          <el-radio label="Sponsorship" />
-          <el-radio label="Venue" />
+          <el-radio value="Sponsorship" label="Sponsorship" />
+          <el-radio value="Venue" label="Sponsorship" />
         </el-radio-group>
       </el-form-item>
 

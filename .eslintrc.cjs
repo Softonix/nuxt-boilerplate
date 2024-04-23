@@ -27,6 +27,7 @@ module.exports = {
       ignoreStrings: true,
       ignoreRegExpLiterals: true
     }],
+    camelcase: 'off',
     'no-undef': 'off',
     'no-prototype-builtins': 'off',
     'array-callback-return': 'off',
@@ -56,6 +57,7 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': ['error', { ignoreRestSiblings: true }],
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     indent: 'off',
+    '@typescript-eslint/no-duplicate-enum-values': 'off',
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/type-annotation-spacing': ['error', {
       before: false,

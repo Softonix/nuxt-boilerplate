@@ -10,7 +10,7 @@
 
       <p>{{ aboutVar }}</p>
       <el-button
-        :type="$elComponentType.primary"
+        type="primary"
         @click="changeAboutVar('changed var')"
       >
         Change about var

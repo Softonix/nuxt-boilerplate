@@ -1,9 +1,9 @@
 {
-  // https://v3.nuxtjs.org/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "node",
-    "verbatimModuleSyntax": true,
-    "types": ["unplugin-icons/types/vue"]
+    "allowImportingTsExtensions": true,
+    "types": [
+      "unplugin-icons/types/vue"
+    ]
   }
 }
