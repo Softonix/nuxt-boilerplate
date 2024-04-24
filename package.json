@@ -1,6 +1,7 @@
 {
   "private": true,
   "name": "softonix-nuxt-boilerplate",
+  "version": "0.0.0",
   "scripts": {
     "build-only": "nuxt build",
     "build": "run-s type-check build-only",
