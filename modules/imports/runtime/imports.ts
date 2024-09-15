@@ -45,9 +45,9 @@ function buildScriptsAutoImports (imports: Import[]) {
       dirs.forEach((dirent) => {
         const dirPath = pathJoin(dirName, dirent.name)
 
-        const hasPrefix = ['use', 'get'].some(prefix => dirent.name.includes(prefix))
+        const hasPrefix = ['use', 'get'].some(prefix => dirent.name.startsWith(prefix))
 
-        if (['.store.ts', '.service.ts'].some(ext => dirent.name.includes(ext)) || hasPrefix) {
+        if (['.store.ts', '.service.ts'].some(ext => dirent.name.endsWith(ext)) || hasPrefix) {
           imports.push({
             name: 'default',
             as: buildImportName(dirent.name, hasPrefix),

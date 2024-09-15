@@ -2,6 +2,7 @@
   <div>
     <AboutComponent />
 
+    <AppIconAlert />
     <AppIconEyeTest class="text-primary hover:text-black cursor-pointer" />
     <AppIconKnife class="w-7 text-primary hover:text-black cursor-pointer" />
 

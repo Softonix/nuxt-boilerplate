@@ -16,7 +16,8 @@ export default defineNuxtModule({
         compiler: 'vue3',
         customCollections: {
           icon: FileSystemIconLoader('./assets/icons')
-        }
+        },
+        autoInstall: true
       }) as Plugin,
 
       Components({
